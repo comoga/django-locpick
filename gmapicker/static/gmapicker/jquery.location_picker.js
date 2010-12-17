@@ -25,6 +25,7 @@ $(document).ready(function(){
             var zoom = 12;
         }
 
+
         var myOptions = {
           zoom: zoom,
           center: center,
@@ -69,5 +70,43 @@ $(document).ready(function(){
         google.maps.event.addListener(gmap, 'zoom_changed', function(event) {
             update_input();
         });
+
+        function HomeControl(controlDiv, gmap) {
+
+          controlDiv.style.padding = '5px';
+
+          // Set CSS for the control border
+          var controlUI = document.createElement('DIV');
+          controlUI.style.backgroundColor = 'white';
+          controlUI.style.borderStyle = 'solid';
+          controlUI.style.borderWidth = '2px';
+          controlUI.style.cursor = 'pointer';
+          controlUI.style.textAlign = 'center';
+          controlUI.title = 'Click to remove the marker';
+          controlDiv.appendChild(controlUI);
+
+          // Set CSS for the control interior
+          var controlText = document.createElement('DIV');
+          controlText.style.fontFamily = 'sans-serif';
+          controlText.style.fontSize = '12px';
+          controlText.style.paddingLeft = '4px';
+          controlText.style.paddingRight = '4px';
+          controlText.innerHTML = 'Clean';
+          controlUI.appendChild(controlText);
+
+          // Setup the click event listeners: simply set the map to Chicago
+          google.maps.event.addDomListener(controlUI, 'click', function() {
+            if (marker != null){
+              marker.setMap(null);
+              marker = null;
+              input.value = '';
+            }
+          });
+        }
+        var homeControlDiv = document.createElement('DIV');
+        var homeControl = new HomeControl(homeControlDiv, gmap);
+
+        homeControlDiv.index = 1;
+        gmap.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
     });
 });

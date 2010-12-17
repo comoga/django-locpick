@@ -30,7 +30,7 @@ class LocationFieldDescriptor(object):
             raise AttributeError(
                 "The '%s' attribute can only be accessed from %s instances."
                 % (self.field.name, owner.__name__))
-        return Map.from_db(instance.__dict__[self.field.name])
+        return Map(instance.__dict__[self.field.name])
 
     def __set__(self, instance, value):
         instance.__dict__[self.field.name] = value
@@ -38,19 +38,28 @@ class LocationFieldDescriptor(object):
 
 class Map(object):
 
-    def __init__(self, position, center, zoom):
-        self.position = position
-        self.center = center
-        self.zoom = zoom
+    def __init__(self, value):
+        self.value = value
+        self.position = None
+        self.center = None
+        self.zoom = None
+        if value:
+            values = value.split(',')
+            self.position = (float(values[0]), float(values[1])),
+            self.center = (float(values[2]), float(values[3])),
+            self.zoom = int(values[4]),
 
-    @classmethod
-    def from_db(cls, value):
-        values = value.split(',')
-        return cls(
-            position=(float(values[0]), float(values[1])),
-            center=(float(values[2]), float(values[3])),
-            zoom=int(values[4]),
-        )
+    def __str__(self):
+        return str(self.value)
+
+    def __unicode__(self):
+        return unicode(self.value)
+
+    def __repr__(self):
+        return unicode(self)
+
+    def __nonzero__(self):
+        return bool(self.value)
 
     def render_map(self, width=200, height=200):
         return loader.render_to_string(
