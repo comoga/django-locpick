@@ -1,0 +1,2 @@
+recursive-include gmapicker/templates/ *.html
+
