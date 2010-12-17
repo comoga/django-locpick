@@ -1,2 +1,3 @@
 recursive-include gmapicker/templates/ *.html
+recursive-include gmapicker/static/ *
 
