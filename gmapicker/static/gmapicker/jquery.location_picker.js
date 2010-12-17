@@ -45,6 +45,9 @@ $(document).ready(function(){
         }
 
         function update_input(){
+            if (marker == null){
+                return;
+            }
             var pos = marker.getPosition();
             input.value = pos.lat()
                         + ',' + pos.lng()
@@ -79,7 +82,7 @@ $(document).ready(function(){
           var controlUI = document.createElement('DIV');
           controlUI.style.backgroundColor = 'white';
           controlUI.style.borderStyle = 'solid';
-          controlUI.style.borderWidth = '2px';
+          controlUI.style.borderWidth = '1px';
           controlUI.style.cursor = 'pointer';
           controlUI.style.textAlign = 'center';
           controlUI.title = 'Click to remove the marker';

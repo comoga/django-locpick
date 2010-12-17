@@ -45,9 +45,9 @@ class Map(object):
         self.zoom = None
         if value:
             values = value.split(',')
-            self.position = (float(values[0]), float(values[1])),
-            self.center = (float(values[2]), float(values[3])),
-            self.zoom = int(values[4]),
+            self.position = (float(values[0]), float(values[1]))
+            self.center = (float(values[2]), float(values[3]))
+            self.zoom = int(values[4])
 
     def __str__(self):
         return str(self.value)
