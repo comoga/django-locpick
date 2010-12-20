@@ -21,26 +21,6 @@ $(document).ready(function(){
 		$(this).parent().append(search_field);
 		$(this).parent().append(search_button);
 
-		function geoCode(){
-			var address = document.getElementById("location_picker_search").value;
-			geocoder.geocode( { 'address': address}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					gmap.setCenter(results[0].geometry.location);
-				} else {
-					alert("Geocode was not successful for the following reason: " + status);
-				}
-			});
-		};
-		search_button.click(function() {
-			geoCode();
-		});
-		search_field.bind('keydown', function(e) {
-			var code = (e.keyCode ? e.keyCode : e.which);
-			if (code == 13) { //Enter keycode
-				geoCode();
-				return false;
-			}
-		});
 
 		if (this.value.split(',').length == 5) {
 			values = this.value.split(',');
@@ -71,6 +51,37 @@ $(document).ready(function(){
 		} else {
 			var marker = null;
 		}
+
+		function geoCode(){
+			var address = document.getElementById("location_picker_search").value;
+			geocoder.geocode( { 'address': address}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					var latLon = results[0].geometry.location;
+					gmap.setCenter(latLon);
+					if (marker == null){
+						marker = new google.maps.Marker({
+							position: latLon,
+							map: gmap,
+						});
+					} else {
+						marker.setPosition(latLon);
+					}
+					updateInput();
+				} else {
+					alert("Geocode was not successful for the following reason: " + status);
+				}
+			});
+		};
+		search_button.click(function() {
+			result = geoCode();
+		});
+		search_field.bind('keydown', function(e) {
+			var code = (e.keyCode ? e.keyCode : e.which);
+			if (code == 13) { //Enter keycode
+				geoCode();
+				return false;
+			}
+		});
 
 		function updateInput(){
 			if (marker == null){
