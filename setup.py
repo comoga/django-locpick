@@ -11,7 +11,7 @@ except IOError:
 
 setup(
     name='django-gmapicker',
-    version='0.1',
+    version='0.2',
     url="https://github.com/comoga/django-gmapicker",
     description='',
     long_description=long_description,
