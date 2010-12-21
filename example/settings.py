@@ -105,3 +105,5 @@ PROJECT_ROOT = os.path.dirname(__file__)
 GMAPICKER_ROOT = os.path.dirname(gmapicker.__file__)
 
 GMAPICKER_STATIC_URL = '/static/gmapicker/'
+
+GMAPICKER_DEFAULT_MAP_WIDTH = 400

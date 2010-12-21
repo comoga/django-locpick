@@ -6,8 +6,8 @@ Install from here using ``pip``::
     pip install -e git+git://github.com/comoga/django-gmapicker#egg=django-gmapicker
 
 
-Configuration
-=============
+Quick Setup
+===========
 
 With `django.contrib.staticfiles` (from Django 1.3)::
 
@@ -51,6 +51,14 @@ template::
     {{ place.location.render_map }}
 
 
+Configuration
+=============
+
+ * `GMAPICKER_STATIC_URL` - URL that handles gmapicker static directory, defaults to STATIC_URL + 'gmapicker/'.
+ * `GMAPICKER_DEFAULT_MAP_WIDTH` - Default frontend map width, defaults to 200 (rendered by `location.render_map()`)
+ * `GMAPICKER_DEFAULT_MAP_HEIGHT` - Default frontend map height defaults to 200 (rendered by `location.render_map()`)
+
+
 Changelog
 =========
 
@@ -61,3 +69,4 @@ Changelog
  * Added this README file
  * Added support for multiple maps on one page
  * Added example project
+ * Added GMAPICKER_DEFAULT_MAP_WIDTH and GMAPICKER_DEFAULT_MAP_HEIGHT settings options
