@@ -60,6 +60,20 @@ Configuration
  * `GMAPICKER_DEFAULT_MAP_HEIGHT` - Default frontend map height defaults to 200 (rendered by `location.render_map()`)
 
 
+Screenshots
+===========
+
+.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/docs/screenshot_admin.png
+
+   The admin's changeform.
+
+.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/docs/screenshot_frontend.png
+
+   Map rended on frontend.
+
+
+
+
 Changelog
 =========
 
