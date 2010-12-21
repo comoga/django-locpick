@@ -133,7 +133,7 @@ $(document).ready(function(){
 			controlText.style.fontSize = '12px';
 			controlText.style.paddingLeft = '4px';
 			controlText.style.paddingRight = '4px';
-			controlText.innerHTML = 'Clean';
+			controlText.innerHTML = 'Clear';
 			controlUI.appendChild(controlText);
 
 			// Setup the click event listeners: simply set the map to Chicago
