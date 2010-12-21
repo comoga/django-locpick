@@ -1,7 +1,7 @@
 from django.db import models
+from django.template import loader
 
 from gmapicker.widget import LocationPickerWidget
-from django.template import loader
 
 
 
@@ -65,6 +65,7 @@ class Map(object):
         return loader.render_to_string(
             'gmapicker/map.html',
             {
+                'id': id(self),
                 'map': self,
                 'width': width,
                 'height': height,

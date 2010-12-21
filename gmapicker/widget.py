@@ -2,17 +2,23 @@ from django import forms
 from django.conf import settings
 
 
+if hasattr(settings, 'GMAPICKER_STATIC_URL'):
+    STATIC_URL = settings.GMAPICKER_STATIC_URL
+else:
+    STATIC_URL = settings.STATIC_URL + 'gmapicker/'
+
+
 class LocationPickerWidget(forms.TextInput):
     class Media:
         css = {
             'all': (
-                settings.STATIC_URL + 'gmapicker/location_picker.css',
+                STATIC_URL + 'location_picker.css',
             )
         }
         js = (
             'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
             'http://maps.google.com/maps/api/js?sensor=false',
-            settings.STATIC_URL + 'gmapicker/jquery.location_picker.js',
+            STATIC_URL + 'jquery.location_picker.js',
         )
 
     def __init__(self, language=None, attrs=None):
