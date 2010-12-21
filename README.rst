@@ -63,11 +63,11 @@ Configuration
 Screenshots
 ===========
 
-.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/docs/screenshot_admin.png
+.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/doc/screenshot_admin.png
 
    The admin's changeform.
 
-.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/docs/screenshot_frontend.png
+.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/doc/screenshot_frontend.png
 
    Map rended on frontend.
 
