@@ -1,3 +1,14 @@
+Show where your business, venue, party, etc. is on Google Maps.
+
+Features
+========
+
+* ``LocationField`` to hold a location plus a color marker in the database.
+* A template tag to display the map to your users.
+* Admin interface to create, edit, and edit the map preview with the map
+  marker.
+
+
 Installation
 ============
 
@@ -9,7 +20,7 @@ Install from here using ``pip``::
 Quick Setup
 ===========
 
-With `django.contrib.staticfiles` (from Django 1.3)::
+With ``django.contrib.staticfiles`` (from Django 1.3)::
 
     INSTALLED_APPS = (
         ...
@@ -19,8 +30,7 @@ With `django.contrib.staticfiles` (from Django 1.3)::
 
     STATIC_URL = ... # see staticfiles documentation
 
-
-Other::
+Without ``django.contrib.staticfiles``::
 
     INSTALLED_APPS = (
         ...
@@ -33,7 +43,7 @@ Other::
 Usage
 =====
 
-models.py::
+Add ``LocationField`` to your ``models.py``::
 
     from locpick.field import LocationField
 
@@ -42,32 +52,38 @@ models.py::
         location = LocationField()
 
 
-display map on frontend::
+To display the map on the frontend, include this javascript code::
 
-    ...
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
-    ...
+
+Then, use ``LocationField.render_map()``::
 
     {{ place.location.render_map }}
 
-    or if you want a non-default map dimensions, you can use:
+
+Or use the template tag ``gmap`` to display and specify the map's size::
 
     {% load gmap %}
     {% gmap place.location WIDTH HEIGHT %}
 
-display link to the map::
+
+Additional features
+-------------------
+
+Display an external link (Google Maps) to the map::
 
     <a href="{{ place.location.external_url }}">Map</a>
-
 
 
 Configuration
 =============
 
+Customize the default configuration in your ``settings.py``::
+
  * `LOCPICK_STATIC_URL` - URL that handles locpick static directory, defaults to STATIC_URL + 'locpick/'.
  * `LOCPICK_DEFAULT_MAP_WIDTH` - Default frontend map width, defaults to 200 (rendered by `location.render_map()`)
- * `LOCPICK_DEFAULT_MAP_HEIGHT` - Default frontend map height defaults to 200 (rendered by `location.render_map()`)
+ * `LOCPICK_DEFAULT_MAP_HEIGHT` - Default frontend map height, defaults to 200 (rendered by `location.render_map()`)
 
 
 Screenshots
@@ -79,8 +95,7 @@ Screenshots
 
 .. figure:: https://github.com/aleszoulek/django-locpick/raw/master/doc/screenshot_frontend.png
 
-   Map rended on frontend.
-
+   A map rendered on the frontend.
 
 
 
