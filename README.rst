@@ -51,6 +51,12 @@ template::
 
     {{ place.location.render_map }}
 
+    or if you want a non-default map dimensions, you can use:
+
+    {% load gmap %}
+    {% gmap place.location WIDTH HEIGHT %}
+
+
 
 Configuration
 =============
@@ -85,3 +91,4 @@ Changelog
  * Added support for multiple maps on one page
  * Added example project
  * Added GMAPICKER_DEFAULT_MAP_WIDTH and GMAPICKER_DEFAULT_MAP_HEIGHT settings options
+ * Added template tag `gmap`

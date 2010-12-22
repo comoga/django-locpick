@@ -1,3 +1,4 @@
+{% load gmap %}
 <html>
 
 <head>
@@ -9,7 +10,7 @@
     {% for place in places %}
         <div style="margin: 10px; padding: 5px; border: 1px solid black; background: #aca; float: left;">
             <h2>{{place.name}}</h2>
-            <div>{{place.location.render_map}}</div>
+            <div>{% gmap place.location 400 300 %}</div>
         </div>
     {% endfor %}
 </body>

@@ -1,11 +1,8 @@
 from django.db import models
 from django.template import loader
-from django.conf import settings
 
+from gmapicker import settings
 from gmapicker.widget import LocationPickerWidget
-
-DEFAULT_MAP_WIDTH = getattr(settings, 'GMAPICKER_DEFAULT_MAP_WIDTH', 200)
-DEFAULT_MAP_HEIGHT = getattr(settings, 'GMAPICKER_DEFAULT_MAP_HEIGHT', 200)
 
 
 class LocationField(models.CharField):
@@ -64,7 +61,7 @@ class Map(object):
     def __nonzero__(self):
         return bool(self.value)
 
-    def render_map(self, width=DEFAULT_MAP_WIDTH, height=DEFAULT_MAP_HEIGHT):
+    def render_map(self, width=settings.DEFAULT_MAP_WIDTH, height=settings.DEFAULT_MAP_HEIGHT):
         return loader.render_to_string(
             'gmapicker/map.html',
             {
