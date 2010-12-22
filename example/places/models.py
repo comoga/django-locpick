@@ -1,6 +1,6 @@
 from django.db import models
 
-from gmapicker.field import LocationField
+from locpick.field import LocationField
 
 
 class Place(models.Model):

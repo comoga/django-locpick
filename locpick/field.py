@@ -1,8 +1,8 @@
 from django.db import models
 from django.template import loader
 
-from gmapicker import settings
-from gmapicker.widget import LocationPickerWidget
+from locpick import settings
+from locpick.widget import LocationPickerWidget
 
 
 class LocationField(models.CharField):
@@ -63,7 +63,7 @@ class Map(object):
 
     def render_map(self, width=settings.DEFAULT_MAP_WIDTH, height=settings.DEFAULT_MAP_HEIGHT):
         return loader.render_to_string(
-            'gmapicker/map.html',
+            'locpick/map.html',
             {
                 'id': id(self),
                 'map': self,
@@ -89,4 +89,4 @@ try:
 except ImportError:
     pass
 else:
-    add_introspection_rules([], [r"^gmapicker\.field\.LocationField"])
+    add_introspection_rules([], [r"^locpick\.field\.LocationField"])

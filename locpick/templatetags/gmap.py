@@ -1,12 +1,12 @@
 from django import template
 
-from gmapicker import settings
+from locpick import settings
 
 
 register = template.Library()
 
 
-class GmapickerNode(template.Node):
+class LocpickNode(template.Node):
     def __init__(self, field, width=settings.DEFAULT_MAP_WIDTH, height=settings.DEFAULT_MAP_HEIGHT):
         self.field_name = field
         self.width = width
@@ -21,8 +21,8 @@ class GmapickerNode(template.Node):
 def gmap(parser, token):
     bits = token.split_contents()
     if len(bits) == 2:
-        return GmapickerNode(field=bits[1])
+        return LocpickNode(field=bits[1])
     elif len(bits) == 4:
-        return GmapickerNode(field=bits[1], width=bits[2], height=bits[3])
+        return LocpickNode(field=bits[1], width=bits[2], height=bits[3])
     else:
-        raise template.TemplateSyntaxError('{% gmapicker instance.location_field %} or {% gmapicker instance.location_field WIDTH HEIGHT %}')
+        raise template.TemplateSyntaxError('{% locpick instance.location_field %} or {% locpick instance.location_field WIDTH HEIGHT %}')

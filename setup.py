@@ -10,9 +10,9 @@ except IOError:
     long_description = None
 
 setup(
-    name='django-gmapicker',
+    name='django-locpick',
     version='0.2',
-    url="https://github.com/comoga/django-gmapicker",
+    url="https://github.com/comoga/django-locpick",
     description='',
     long_description=long_description,
     author='Comoga Django Team',

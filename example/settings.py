@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
 
-    'gmapicker',
+    'locpick',
 
     'example.places',
     # Uncomment the next line to enable the admin:
@@ -100,10 +100,10 @@ INSTALLED_APPS = (
 )
 
 import os
-import gmapicker
+import locpick
 PROJECT_ROOT = os.path.dirname(__file__)
-GMAPICKER_ROOT = os.path.dirname(gmapicker.__file__)
+LOCPICK_ROOT = os.path.dirname(locpick.__file__)
 
-GMAPICKER_STATIC_URL = '/static/gmapicker/'
+LOCPICK_STATIC_URL = '/static/locpick/'
 
-GMAPICKER_DEFAULT_MAP_WIDTH = 400
+LOCPICK_DEFAULT_MAP_WIDTH = 400

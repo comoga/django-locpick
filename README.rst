@@ -3,7 +3,7 @@ Installation
 
 Install from here using ``pip``::
 
-    pip install -e git+git://github.com/comoga/django-gmapicker#egg=django-gmapicker
+    pip install -e git+git://github.com/comoga/django-locpick#egg=django-locpick
 
 
 Quick Setup
@@ -14,7 +14,7 @@ With `django.contrib.staticfiles` (from Django 1.3)::
     INSTALLED_APPS = (
         ...
         'django.contrib.staticfiles',
-        'gmapicker',
+        'locpick',
     )
 
     STATIC_URL = ... # see staticfiles documentation
@@ -24,10 +24,10 @@ Other::
 
     INSTALLED_APPS = (
         ...
-        'gmapicker',
+        'locpick',
     )
 
-    GMAPICKER_STATIC_URL = ... # 'GMAPICKER_CHECKOUT_DIR/gmapicker/static/gmapicker/'
+    LOCPICK_STATIC_URL = ... # 'LOCPICK_CHECKOUT_DIR/locpick/static/locpick/'
 
 
 Usage
@@ -35,7 +35,7 @@ Usage
 
 models.py::
 
-    from gmapicker.field import LocationField
+    from locpick.field import LocationField
 
     class Place(models.Model)
         ...
@@ -65,19 +65,19 @@ display link to the map::
 Configuration
 =============
 
- * `GMAPICKER_STATIC_URL` - URL that handles gmapicker static directory, defaults to STATIC_URL + 'gmapicker/'.
- * `GMAPICKER_DEFAULT_MAP_WIDTH` - Default frontend map width, defaults to 200 (rendered by `location.render_map()`)
- * `GMAPICKER_DEFAULT_MAP_HEIGHT` - Default frontend map height defaults to 200 (rendered by `location.render_map()`)
+ * `LOCPICK_STATIC_URL` - URL that handles locpick static directory, defaults to STATIC_URL + 'locpick/'.
+ * `LOCPICK_DEFAULT_MAP_WIDTH` - Default frontend map width, defaults to 200 (rendered by `location.render_map()`)
+ * `LOCPICK_DEFAULT_MAP_HEIGHT` - Default frontend map height defaults to 200 (rendered by `location.render_map()`)
 
 
 Screenshots
 ===========
 
-.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/doc/screenshot_admin.png
+.. figure:: https://github.com/aleszoulek/django-locpick/raw/master/doc/screenshot_admin.png
 
    The admin's changeform.
 
-.. figure:: https://github.com/aleszoulek/django-gmapicker/raw/master/doc/screenshot_frontend.png
+.. figure:: https://github.com/aleszoulek/django-locpick/raw/master/doc/screenshot_frontend.png
 
    Map rended on frontend.
 
@@ -94,6 +94,6 @@ Changelog
  * Added this README file
  * Added support for multiple maps on one page
  * Added example project
- * Added GMAPICKER_DEFAULT_MAP_WIDTH and GMAPICKER_DEFAULT_MAP_HEIGHT settings options
+ * Added LOCPICK_DEFAULT_MAP_WIDTH and LOCPICK_DEFAULT_MAP_HEIGHT settings options
  * Added template tag `gmap`
  * Added `external_url` field property

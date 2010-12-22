@@ -2,10 +2,10 @@ from django import forms
 from django.conf import settings
 
 
-if hasattr(settings, 'GMAPICKER_STATIC_URL'):
-    STATIC_URL = settings.GMAPICKER_STATIC_URL
+if hasattr(settings, 'LOCPICK_STATIC_URL'):
+    STATIC_URL = settings.LOCPICK_STATIC_URL
 else:
-    STATIC_URL = settings.STATIC_URL + 'gmapicker/'
+    STATIC_URL = settings.STATIC_URL + 'locpick/'
 
 
 class LocationPickerWidget(forms.TextInput):

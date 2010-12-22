@@ -1,7 +1,7 @@
 </script>
 
 
-<div id='gmapicker_map_canvas_{{id}}' style="width:{{width}}px; height:{{height}}px">
+<div id='locpick_map_canvas_{{id}}' style="width:{{width}}px; height:{{height}}px">
 
 <script type="text/javascript">
   ( function() {
@@ -15,7 +15,7 @@
       streetViewControl: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    var map = new google.maps.Map(document.getElementById("gmapicker_map_canvas_{{id}}"),
+    var map = new google.maps.Map(document.getElementById("locpick_map_canvas_{{id}}"),
         myOptions);
     var marker = new google.maps.Marker({
         position: position,
