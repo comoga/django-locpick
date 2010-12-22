@@ -10,7 +10,10 @@
     {% for place in places %}
         <div style="margin: 10px; padding: 5px; border: 1px solid black; background: #aca; float: left;">
             <h2>{{place.name}}</h2>
-            <div>{% gmap place.location 400 300 %}</div>
+            <div>
+                {% gmap place.location 400 300 %}
+                <a href="{{ place.location.external_url }}">Full screen</a>
+            </div>
         </div>
     {% endfor %}
 </body>

@@ -72,6 +72,16 @@ class Map(object):
             }
         )
 
+    @property
+    def external_url(self):
+        return "http://maps.google.com/?ll=%s,%s&z=%s&q=%s,%s" % (
+            self.center[0],
+            self.center[1],
+            self.zoom,
+            self.position[0],
+            self.position[1],
+        )
+
 
 
 try:

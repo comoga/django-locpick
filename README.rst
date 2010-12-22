@@ -42,7 +42,7 @@ models.py::
         location = LocationField()
 
 
-template::
+display map on frontend::
 
     ...
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -55,6 +55,10 @@ template::
 
     {% load gmap %}
     {% gmap place.location WIDTH HEIGHT %}
+
+display link to the map::
+
+    <a href="{{ place.location.external_url }}">Map</a>
 
 
 
@@ -92,3 +96,4 @@ Changelog
  * Added example project
  * Added GMAPICKER_DEFAULT_MAP_WIDTH and GMAPICKER_DEFAULT_MAP_HEIGHT settings options
  * Added template tag `gmap`
+ * Added `external_url` field property
