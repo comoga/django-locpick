@@ -1,3 +1,3 @@
-recursive-include locpick/templates/ *.html
-recursive-include locpick/static/ *
+recursive-include locpick/templates *.html
+recursive-include locpick/static *
 
